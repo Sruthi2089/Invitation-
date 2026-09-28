@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wedding Invitation | Ananya & Arjun</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #fffaf5;
+            color: #4b2e2e;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            background: rgba(255, 250, 245, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #9b5b42;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4b2e2e;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #b5795b;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+
+            background:
+                linear-gradient(
+                    rgba(255, 250, 245, 0.82),
+                    rgba(255, 250, 245, 0.82)
+                ),
+                url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .small-title {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: #9b5b42;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 10vw, 90px);
+            font-weight: normal;
+            margin: 20px 0;
+            color: #713c32;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: normal;
+            color: #9b5b42;
+        }
+
+        .hero-date {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            background: #9b5b42;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #713c32;
+            transform: translateY(-2px);
+        }
+
+        /* COMMON SECTION */
+
+        section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 38px;
+            font-weight: normal;
+            color: #713c32;
+            margin-bottom: 15px;
+        }
+
+        .line {
+            width: 70px;
+            height: 2px;
+            background: #c49572;
+            margin: 0 auto 40px;
+        }
+
+        /* COUPLE */
+
+        .couple {
+            background: #fff;
+        }
+
+        .couple-text {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .couple-names {
+            font-size: 35px;
+            color: #9b5b42;
+            margin: 25px 0;
+        }
+
+        /* COUNTDOWN */
+
+        .countdown-section {
+            background: #f5e9df;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            width: 120px;
+            padding: 25px 10px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 35px;
+            color: #9b5b42;
+            font-weight: bold;
+        }
+
+        .time-box small {
+            color: #777;
+        }
+
+        /* EVENTS */
+
+        .events {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .event {
+            width: 280px;
+            padding: 35px 20px;
+            background: #fff;
+            border: 1px solid #ead8cc;
+            border-radius: 15px;
+        }
+
+        .event-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .event h3 {
+            color: #9b5b42;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .event p {
+            line-height: 1.7;
+        }
+
+        /* STORY */
+
+        .story {
+            background: #fdf5ef;
+        }
+
+        .story-content {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* RSVP */
+
+        .rsvp {
+            background: #713c32;
+            color: white;
+        }
+
+        .rsvp .section-title {
+            color: white;
+        }
+
+        .rsvp p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .rsvp .btn {
+            background: white;
+            color: #713c32;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            background: #4b2e2e;
+            color: white;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav .links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: 250px;
+            }
+
+            .time-box {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">A & A</div>
+
+        <div class="links">
+            <a href="#home">Home</a>
+            <a href="#couple">Couple</a>
+            <a href="#events">Events</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#rsvp">RSVP</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                Together with their families
+            </p>
+
+            <h1>Ananya & Arjun</h1>
+
+            <h2>Are Getting Married</h2>
+
+            <p class="hero-date">
+                15 December 2026 • 10:30 AM
+            </p>
+
+            <a href="#rsvp" class="btn">
+                RSVP Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- COUPLE -->
+
+    <section class="couple" id="couple">
+
+        <h2 class="section-title">
+            The Happy Couple
+        </h2>
+
+        <div class="line"></div>
+
+        <div class="couple-names">
+            Ananya ❤️ Arjun
+        </div>
+
+        <p class="couple-text">
+            Two hearts, two souls, and one beautiful journey.
+            With the blessings of our families, we are excited
+            to begin this wonderful chapter of our lives together.
+        </p>
+
+    </section>
+
+
+    <!-- COUNTDOWN -->
+
+    <section class="countdown-section">
+
+        <h2 class="section-title">
+            Counting Down To Our Big Day
+        </h2>
+
+        <div class="line"></div>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>Days</small>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Hours</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>Seconds</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EVENTS -->
+
+    <section id="events">
+
+        <h2 class="section-title">
+            Wedding Events
+        </h2>
+
+        <div class="line"></div>
+
+        <div class="events">
+
+            <div class="event">
+
+                <div class="event-icon">🌸</div>
+
+                <h3>Haldi</h3>
+
+                <p>
+                    14 December 2026<br>
+                    10:00 AM<br>
+                    Family Residence
+                </p>
+
+            </div>
+
+
+            <div class="event">
+
+                <div class="event-icon">💍</div>
+
+                <h3>Wedding</h3>
+
+                <p>
+                    15 December 2026<br>
+                    10:30 AM<br>
+                    Sri Lakshmi Convention Hall
+                </p>
+
+            </div>
+
+
+            <div class="event">
+
+                <div class="event-icon">🥂</div>
+
+                <h3>Reception</h3>
+
+                <p>
+                    15 December 2026<br>
+                    7:00 PM<br>
+                    Sri Lakshmi Convention Hall
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STORY -->
+
+    <section class="story">
+
+        <h2 class="section-title">
+            Our Story
+        </h2>
+
+        <div class="line"></div>
+
+        <p class="story-content">
+            Every love story is beautiful, but ours is our favorite.
+            From the first meeting to this beautiful moment,
+            we have shared countless memories, smiles and dreams.
+            Now we are ready to begin our forever together.
+        </p>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section id="gallery">
+
+        <h2 class="section-title">
+            Our Moments
+        </h2>
+
+        <div class="line"></div>
+
+        <div class="gallery">
+
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80">
+
+            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80">
+
+            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=800&q=80">
+
+        </div>
+
+    </section>
+
+
+    <!-- RSVP -->
+
+    <section class="rsvp" id="rsvp">
+
+        <h2 class="section-title">
+            We Would Love To See You
+        </h2>
+
+        <div class="line"></div>
+
+        <p>
+            Your presence will make our celebration even more special.
+        </p>
+
+        <a href="mailto:your@email.com" class="btn">
+            Confirm Attendance
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            Made with ❤️ for Ananya & Arjun
+        </p>
+
+        <p>
+            © 2026 Wedding Invitation
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const weddingDate =
+            new Date("December 15, 2026 10:30:00").getTime();
+
+        const timer = setInterval(function () {
+
+            const now = new Date().getTime();
+
+            const distance = weddingDate - now;
+
+            const days =
+                Math.floor(distance / (1000 * 60 * 60 * 24));
+
+            const hours =
+                Math.floor(
+                    (distance % (1000 * 60 * 60 * 24))
+                    / (1000 * 60 * 60)
+                );
+
+            const minutes =
+                Math.floor(
+                    (distance % (1000 * 60 * 60))
+                    / (1000 * 60)
+                );
+
+            const seconds =
+                Math.floor(
+                    (distance % (1000 * 60))
+                    / 1000
+                );
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+
+                clearInterval(timer);
+
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+
+            }
+
+        }, 1000);
+
+    </script>
+
+</body>
+</html>
